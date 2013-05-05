@@ -25,17 +25,18 @@
 
 <ol>
 <li>
-Chapter 1: Introducing OpenSSH</br>
+<strong>Chapter 1: Introducing OpenSSH</strong>
 
 <ul>
 <li>
 created in 1995 for secure communication across private, public, and hostile networks.
 
 <li>
-openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH
+openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
 
 <li>
-SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.</br><strong>Do not use SSH version 1!!!</strong>
+SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
+       </br><strong>Do not use SSH version 1!!!</strong>
 
 <ol>
 <li>
@@ -45,33 +46,116 @@ Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
 SSH-1 session can be decoded in real time by programs such as <a href="http://ettercap.github.io/ettercap/">Ettercap</a>.
 
 </ol>
-<li>
-writing
-
 </ul>
 <li>
-Chapter 2: Chapter 2: Encryption, Algorithms, and Keys</br>
+<strong>Chapter 2: Encryption, Algorithms, and Keys</strong>
 
 <ul>
 <li>
-writing
+<strong>Encryption algorithms</strong>
+
+<ol>
+<li>
+<strong>Symmetric algorithm</strong>
+
+<ul>
+<li>
+same key for encryption and decryption.
 
 <li>
-writing
+AES, 3DES, blowfish, IDEA etc.
 
 <li>
-writing
+very fast and secure.
+
+</ul>
+<li>
+<strong>Asymmetric algorithm</strong>
+
+<ul>
+<li>
+separate key pair(public/private). public key encryption public key encryption.
 
 <li>
-writing
+Diffie-Hellman key exchange protocol.
+
+<li>
+much slower and more cumputationally expensive than symmetric algorithm.
+
+</ul>
+</ol>
+<li>
+<strong>How SSH uses Encyption</strong>
+
+<ol>
+<li>
+Negotiate a temporary keypair of session by keypair of server.
+
+<li>
+Derive a temporary symmetric key of session.
+
+<li>
+Encrypt data by the temporary symmetric key.
+
+<li>
+Change two temporary keypairs intermittently.
+
+</ol>
+</ul>
+<li>
+<strong>Chapter 3: The OpenSSH Server</strong>
+
+<ul>
+<li>
+<strong>Configration files</strong>
+
+<ol>
+<li>
+Server: <code>/etc/ssh/sshd_config</code>
+
+<li>
+Server's private keys: <code>/etc/ssh/ssh_host_*_key</code> (* = encryption algorithms such as rsa, dsa, ecdsa ...)
+
+<li>
+Server's public keys: <code>/etc/ssh/ssh_host_*_key.pub</code> (* = encryption algorithms such as rsa, dsa, ecdsa ...)
+
+<li>
+Client: <code>/etc/ssh/ssh_config</code>
+
+</ol>
+<li>
+<strong>sshd_config</strong>
+<pre>
+ListenAddress ip:port
+Protocol 2                          #Do not uses SSH version 1.
+Banner /etc/ssh/ssh-banner          #It won't always appear. SSH protocol do not guarantee.
+PrintMotd yes                       #Print message of the day ==&gt; /etc/motd. reference PAM.
+PrintLastLog yes                    #Print the information of the user's last login.
+LoginGraceTime 2m                   #User can try to log in 6 times in 2 minutes in a single session.
+MaxAuthTries 6
+UseDNS yes                          #Verify the forward and reverse DNS names for a client's IP address.
+                                    #The check can increase system load and failed DNS checks wil1 slow down all SSH logins.
+PidFile /var/run/sshd.pid
+SyslogFacility AUTH
+LogLevel INFO                       #Accepted Values: QUIET/FATAL/ERROR/INFO/VERBOSE/DEBUG[123]
+DenyUsers   denyuserlist            #PRIority Level 01 (High)
+AllowUsers  allowuserlist           #PRIority Level 02
+DenyGroups  denygrouplist           #PRIority Level 03
+AllowGroups allowgrouplist          #PRIority Level 04 (Low)
+#AllowUsers backup@10.0.0.0/8       #Allow only user from 10.0.0.0/8 network.
+</pre>
 
 </ul>
 </ol>
 </ul>
+
 <h3 id="toc_1.0.2">Examples</h3>
 <ol>
 <li>
-xwindows
+<code>telnet/nc hostname port #OpenSSH Banner Grabbing</code>
+
+<li>
+<code>sshd -f sshd_config -p testport -ddd #Test and Debug mode(not fork)</code>
 
 </ol>
 

@@ -4,9 +4,11 @@
 === Books and Documents  ===
  * [[https://www.michaelwlucas.com/nonfiction/ssh-mastery|SSH Mastery: OpenSSH, PuTTY, Tunnels and Keys]]  ^_*Excellent!! Highly recommend!!_*^
    # Chapter 1: Introducing OpenSSH</br>
-     - writing
-     - writing
-     - writing
+     - created in 1995 for secure communication across private, public, and hostile networks.
+     - openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH
+     - SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.</br>*Do not use SSH version 1!!!*
+       # Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
+       # SSH-1 session can be decoded in real time by programs such as [[http://ettercap.github.io/ettercap/|Ettercap]].
      - writing
    # Chapter 2: Chapter 2: Encryption, Algorithms, and Keys</br>
      - writing

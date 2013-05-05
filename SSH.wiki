@@ -1,8 +1,8 @@
  = [[index|Top]] [[Study]] [[Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
-=== Books and Docoments  ===
- * [[http://www.amazon.com/SSH-Mastery-OpenSSH-PuTTY-Tunnels/dp/1470069717/ref=pd_bxgy_b_img_y|SSH Mastery: OpenSSH, PuTTY, Tunnels and Keys]]
+=== Books and Documents  ===
+ * [[https://www.michaelwlucas.com/nonfiction/ssh-mastery|SSH Mastery: OpenSSH, PuTTY, Tunnels and Keys]]  ^_*Excellent!! Highly recommend!!_*^
    # Chapter 1: Introducing OpenSSH</br>
      - writing
      - writing
@@ -14,3 +14,4 @@
      - writing
      - writing
 === Examples ===
+ # xwindows

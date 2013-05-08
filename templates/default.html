@@ -6,15 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
 </head>
 <body>
-<!-- SiteSearch Google -->
-<form method="get" action="http://www.google.com/search" class="justright">
-  <div style="background-color:white">
-    <input type="text" size="30" maxlength="255"/>
-    <input type="submit" value="Google" />
+  <div style="position:absolute;top:10;right:0">
+    <span class="justleft"><font size="2"><strong>This page was last modified on %changetime%,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
-</form>
-<!-- SiteSearch Google -->
+  <!-- SiteSearch Google -->
+  <form method="get" action="http://www.google.com/search" class="justleft">
+    <div style="background-color:white">
+      <input type="text" size="30" maxlength="255"/>
+      <input type="submit" value="Google" />
+    </div>
+   </form>
+   <!-- SiteSearch Google -->
 %content%
-<h2 class="justcenter">powered by <a href="http://code.google.com/p/vimwiki/">vimwiki</a>.</h2>
 </body>
 </html>

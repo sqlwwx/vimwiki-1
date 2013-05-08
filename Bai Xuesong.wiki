@@ -1,18 +1,18 @@
- = [[index|Top]] [[Study]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 == My name is Bai Xuesong, I'm a software engineer. ==
 
 == Education: ==
 Sep 1992 to Jul 1996
-TianJin University, TianJin, China (http://www.tju.edu.cn/english/)
+[[http://www.tju.edu.cn/english/|TianJin University, TianJin, China]]
 
 Bachelor degree of Electronic Engineering
 
 == Qualification: ==
 * CCNA
 * LPIC 301/302
-* DB2 Advanced DBA/App Developer
+* DB2 Advanced DBA/Application Developer
 * Oracle OCP
 * OSSDB Silver(Postgresql)
 

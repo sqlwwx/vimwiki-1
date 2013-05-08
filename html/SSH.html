@@ -6,16 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
-<!-- SiteSearch Google -->
-<form method="get" action="http://www.google.com/search" class="justright">
-  <div style="background-color:white">
-    <input type="text" size="30" maxlength="255"/>
-    <input type="submit" value="Google" />
+  <div style="position:absolute;top:10;right:0">
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-07 15:06:21 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
-</form>
-<!-- SiteSearch Google -->
+  <!-- SiteSearch Google -->
+  <form method="get" action="http://www.google.com/search" class="justleft">
+    <div style="background-color:white">
+      <input type="text" size="30" maxlength="255"/>
+      <input type="submit" value="Google" />
+    </div>
+   </form>
+   <!-- SiteSearch Google -->
 
-<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h3 id="toc_1.0.1">Books and Documents</h3>
@@ -127,7 +130,7 @@ Client: <code>/etc/ssh/ssh_config</code>
 <strong>sshd_config</strong>
 <pre>
 ListenAddress ip:port
-Protocol 2                          #Do not uses SSH version 1.
+Protocol 2                          #Do not use SSH version 1.
 Banner /etc/ssh/ssh-banner          #It won't always appear. SSH protocol do not guarantee.
 PrintMotd yes                       #Print message of the day ==&gt; /etc/motd. reference PAM.
 PrintLastLog yes                    #Print the information of the user's last login.
@@ -145,6 +148,107 @@ AllowGroups allowgrouplist          #PRIority Level 04 (Low)
 #AllowUsers backup@10.0.0.0/8       #Allow only user from 10.0.0.0/8 network.
 </pre>
 
+<li>
+<strong>Wildcards</strong>
+
+<ol>
+<li>
+? matches exactly on character
+
+<li>
+* matches zero or more characters
+         </br><code>HOST !*.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.</code>
+
+</ol>
+<li>
+<strong>Matches</strong>
+
+<ol>
+<li>
+Users and Groups
+         </br><code>Match User bxs,byz,wn #Multiple USERs separated with a comma.</code>
+
+<li>
+Address and HOST
+         </br><code>Match Address 192.0.2.0/26, 192.0.2.192/26 #Multiple IPs separated with a comma.</code>
+         </br><code>Match HOST *.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.</code>
+
+<li>
+Multiple Mix Match Conditions
+         </br><code>Match HOST *.aws.baiyuanzhi.com User byz #Multiple Match Conditions separated with a space.</code>
+
+</ol>
+<li>
+<strong>Do not allow users to SSH into the system as root</strong>
+
+<li>
+<strong>Chrooting Users</strong>
+       </br><a href="http://olivier.sessink.nl/jailkit/">jailkit</a> <em><strong>can easily populate a chroot.</strong></em>
+
+<ol>
+<li>
+Set permissions on the chroot directory (owned by root and not be writable by the restricted user)
+
+<li>
+Create home directory for the imprisoned user
+
+<li>
+Create device node file(/dev/{urandom,null,stderr,stdin,stdout,tty,zero})
+
+<li>
+Copy shell and other programs(static version or dynamic version + necessary libraries)
+
+<li>
+ChrootDirecotry Macros: %% -&gt; %, %h -&gt; user"s home directory, %u -&gt; user's username.
+
+</ol>
+</ul>
+<li>
+<strong>Chapter 4: Verifying Server Keys</strong>
+
+<ul>
+<li>
+<strong>Key Fingerprints</strong>
+       </br><code>ssh-keygen -lvf /etc/ssh/ssh_host_rsa_key.pub #text + randomart(ascii art) fingerprints</code>
+
+</ul>
+<li>
+<strong>Chapter 5: SSH Clients</strong>
+
+<ul>
+<li>
+<strong>ssh_config or ~/.ssh/config</strong>
+<pre>
+AddressFamily inet                      #IPV4 only, Accepted Values: inet/inet6/any
+BindAddress 54.249.98.77                #bind to specific interface
+ControlMaster auto                      #Multiplexing Connections
+ControlPath ~/.ssh/sockets/%r@%h:%p     #Specify the path to the control socket used for connection sharing
+StrictHostKeyChecking ask               #Accepted Values: yes/no/ask
+HashKnownHosts yes                      #Hashing known_hosts
+</pre>
+
+<li>
+<strong>The Host Key Cache:</strong> <code>~/.ssh/known_hosts</code>
+
+</ul>
+<li>
+<strong>Chapter 6: Copying Files over SSH</strong>
+
+<ul>
+<li>
+<strong>scp</strong>
+       </br><code>scp source-hostname:filename destination-hostname:filename</code>
+
+<li>
+<strong>sftp</strong>
+<pre>
+Subsystem sftp /usr/libexec/sftp-server
+Match Group sftponly                    #sftp only group
+ChrootDirectory %h                      #chroot
+ForceCommand internal-sftp
+AllowTcpForwarding no
+</pre>
+
 </ul>
 </ol>
 </ul>
@@ -157,8 +261,28 @@ AllowGroups allowgrouplist          #PRIority Level 04 (Low)
 <li>
 <code>sshd -f sshd_config -p testport -ddd #Test and Debug mode(not fork)</code>
 
+<li>
+<code>ssh-keyscan -t rsa hostname -p sshport #Get server's rsa public key</code>
+
+<li>
+<code>ssh -F ssh_config -vvv hostname -p port #Connect to host in verbose mode</code>
+
+<li>
+<code>ssh -l user hostname #Connect to host with user, default user is local user</code>
+
+<li>
+<code>ssh user@hostname #Connect to host with user, default user is local user</code>
+
+<li>
+<code>ssh -o Port=2222 hostname #Connect tohostname with 2222 port(command line options)</code>
+
+<li>
+<code>ssh-keygen -H #hashing ~/.ssh/known_hosts</code>
+
+<li>
+<code>scp -rp dir hostname: #recursively copy a directory</code>
+
 </ol>
 
-<h2 class="justcenter">powered by <a href="http://code.google.com/p/vimwiki/">vimwiki</a>.</h2>
 </body>
 </html>

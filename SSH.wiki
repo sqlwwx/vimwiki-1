@@ -1,4 +1,4 @@
- = [[index|Top]] [[Study]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Books and Documents  ===
@@ -34,7 +34,7 @@
      - *sshd_config*
        {{{
 ListenAddress ip:port
-Protocol 2                          #Do not uses SSH version 1.
+Protocol 2                          #Do not use SSH version 1.
 Banner /etc/ssh/ssh-banner          #It won't always appear. SSH protocol do not guarantee.
 PrintMotd yes                       #Print message of the day ==> /etc/motd. reference PAM.
 PrintLastLog yes                    #Print the information of the user's last login.
@@ -51,7 +51,60 @@ DenyGroups  denygrouplist           #PRIority Level 03
 AllowGroups allowgrouplist          #PRIority Level 04 (Low)
 #AllowUsers backup@10.0.0.0/8       #Allow only user from 10.0.0.0/8 network.
        }}}
+     - *Wildcards*
+       # ? matches exactly on character
+       # * matches zero or more characters
+         </br>`HOST !*.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.`
+     - *Matches*
+       # Users and Groups
+         </br>`Match User bxs,byz,wn #Multiple USERs separated with a comma.`
+       # Address and HOST
+         </br>`Match Address 192.0.2.0/26, 192.0.2.192/26 #Multiple IPs separated with a comma.`
+         </br>`Match HOST *.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.`
+       # Multiple Mix Match Conditions
+         </br>`Match HOST *.aws.baiyuanzhi.com User byz #Multiple Match Conditions separated with a space.`
+     - *Do not allow users to SSH into the system as root*
+     - *Chrooting Users*
+       </br>[[http://olivier.sessink.nl/jailkit/|jailkit]] _*can easily populate a chroot.*_
+       # Set permissions on the chroot directory (owned by root and not be writable by the restricted user)
+       # Create home directory for the imprisoned user
+       # Create device node file(/dev/{urandom,null,stderr,stdin,stdout,tty,zero})
+       # Copy shell and other programs(static version or dynamic version + necessary libraries)
+       # ChrootDirecotry Macros: %% -> %, %h -> user"s home directory, %u -> user's username.
+   # *Chapter 4: Verifying Server Keys*
+     - *Key Fingerprints*
+       </br>`ssh-keygen -lvf /etc/ssh/ssh_host_rsa_key.pub #text + randomart(ascii art) fingerprints`
+   # *Chapter 5: SSH Clients*
+     - *ssh_config or ~/.ssh/config*
+       {{{
+AddressFamily inet                      #IPV4 only, Accepted Values: inet/inet6/any
+BindAddress 54.249.98.77                #bind to specific interface
+ControlMaster auto                      #Multiplexing Connections
+ControlPath ~/.ssh/sockets/%r@%h:%p     #Specify the path to the control socket used for connection sharing
+StrictHostKeyChecking ask               #Accepted Values: yes/no/ask
+HashKnownHosts yes                      #Hashing known_hosts
+       }}}
+     - *The Host Key Cache:* `~/.ssh/known_hosts`
+   # *Chapter 6: Copying Files over SSH*
+     - *scp*
+       </br>`scp source-hostname:filename destination-hostname:filename`
+     - *sftp*
+       {{{
+Subsystem sftp /usr/libexec/sftp-server
+Match Group sftponly                    #sftp only group
+ChrootDirectory %h                      #chroot
+ForceCommand internal-sftp
+AllowTcpForwarding no
+       }}}
 
 === Examples ===
  # `telnet/nc hostname port #OpenSSH Banner Grabbing`
  # `sshd -f sshd_config -p testport -ddd #Test and Debug mode(not fork)`
+ # `ssh-keyscan -t rsa hostname -p sshport #Get server's rsa public key`
+ # `ssh -F ssh_config -vvv hostname -p port #Connect to host in verbose mode`
+ # `ssh -l user hostname #Connect to host with user, default user is local user`
+ # `ssh user@hostname #Connect to host with user, default user is local user`
+ # `ssh -o Port=2222 hostname #Connect tohostname with 2222 port(command line options)`
+ # `ssh-keygen -H #hashing ~/.ssh/known_hosts`
+ # `scp -rp dir hostname: #recursively copy a directory`
+

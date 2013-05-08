@@ -1,14 +1,14 @@
- = [[index|Top]] [[Study]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === *Certification* ===
  * CCNA
  * LPIC
-  - LPIC 1
-  - LPIC 2
+  - LPIC 101/LPIC 102
+  - LPIC 201/LPIC 202
   - LPIC 301
   - LPIC 302
-  - [[LPIC 303]]
+  - LPIC 303
   - LPIC 304
  * DBA(Oracle/DB2/Postgresql)
 === *Programming* ===
@@ -20,6 +20,6 @@
 === *Software Engineering* ===
 === *Productive Tools* ===
  * Vim
- * tmux
+ * [[tmux]]
 === *Cloud* ===
 === *Others* ===

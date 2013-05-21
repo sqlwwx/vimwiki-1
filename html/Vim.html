@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shCore.css" />
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAS3.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushErlang.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJavaFX.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPerl.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSass.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shLegacy.js"></script>
+<script type="text/javascript">
+  SyntaxHighlighter.all();
+</script>
+<title>Vim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+  <div style="position:absolute;top:10;right:0">
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 12:19:20 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+  </div>
+  <!-- SiteSearch Google -->
+  <form method="get" action="http://www.google.com/search" class="justleft">
+    <div style="background-color:white">
+      <input type="text" size="30" maxlength="255"/>
+      <input type="submit" value="Google" />
+    </div>
+   </form>
+   <!-- SiteSearch Google -->
+
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
+
+<h3 id="toc_1.0.1">Building Vim from source</h3>
+<pre  class="brush: bash"; title="buildvim.sh">
+#!/bin/sh
+
+# install package
+yum install -y \
+ncurses-devel tcl tcl-devel python2 python2-devel ruby ruby-devel perl \
+perl-devel perl-ExtUtils-Embed \automake libevent-devel libevent libselinux \
+libselinux-devel libsepol libsepol-devel gtk2 gtk2-devel libXt libXt-devel \
+libXtst libXtst-devel glib2-devel libX*-devel cairo-devel pango-devel \
+cups-libs gettext-devel gettext-libs
+
+# configure (full feature)
+./configure --prefix=/opt/vim --enable-selinux --enable-luainterp \
+  --enable-perlinterp --enable-pythoninterp --enable-python3interp \
+  --enable-tclinterp --enable-rubyinterp --enable-multibyte --disable-gui \
+  --with-features=huge --enable-fail-if-missing=yes  \
+  --enable-fontset --enable-sysmouse --with-compiledby="root@cgeeker.com" \
+  --with-python3-config-dir=/opt/python3/lib/python3.3/config-3.3m/ \
+  --with-python-config-dir=/usr/lib64/python2.6/config --enable-acl \
+  --enable-gui=gnome2 --enable-xim --enable-fontset --with-x
+
+# compile &amp; install
+make ARCH=x86_64 &amp;&amp; make install
+</pre>
+
+<h3 id="toc_1.0.2">Configuration</h3>
+<ul>
+<li>
+<strong>vimrc</strong> <a href="Configuration/vim/">vimrc</a>
+
+</ul>
+
+<ul>
+<li>
+<strong>plugins</strong>
+
+<ol>
+<li>
+taglist(util)
+
+<li>
+nerdtree(util)
+
+<li>
+snipmate(util)
+
+<li>
+vimwiki(util)
+
+<li>
+c(util)
+
+<li>
+molokai(colorscheme)
+
+<li>
+jellybeans(colorscheme)
+
+</ol>
+</ul>
+
+<h3 id="toc_1.0.3">Books and Documents</h3>
+<ul>
+<li>
+<a href="http://pragprog.com/book/dnvim/practical-vim">Practical Vim: Edit Text at the Speed of Thought</a>  <sup><small><em><strong>Excellent!! Highly recommend!!</em></strong></small></sup>
+
+<ol>
+<li>
+<strong>Chapter 1: Introducing OpenSSH</strong>
+
+<ul>
+<li>
+created in 1995 for secure communication across private, public, and hostile networks.
+
+<li>
+openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
+
+<li>
+SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
+        </br><strong>Do not use SSH version 1!!!</strong>
+
+<ol>
+<li>
+Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
+
+<li>
+SSH-1 session can be decoded in real time by programs such as <a href="http://ettercap.github.io/ettercap/">Ettercap</a>.
+
+</ol>
+</ul>
+</ol>
+<li>
+<a href="http://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 HACKS</a>  <sup><small><em><strong>Very Good!! recommend!!</em></strong></small></sup>
+
+<ol>
+<li>
+<strong>Chapter 1: Introducing OpenSSH</strong>
+
+<ul>
+<li>
+created in 1995 for secure communication across private, public, and hostile networks.
+
+<li>
+openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
+
+<li>
+SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
+        </br><strong>Do not use SSH version 1!!!</strong>
+
+<ol>
+<li>
+Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
+
+</ol>
+</ul>
+</ol>
+</ul>
+
+<h3 id="toc_1.0.4">Examples</h3>
+<ol>
+<li>
+<code>vim -p files #open one page for each file, such as :tabe file</code>
+
+</ol>
+
+</body>
+</html>

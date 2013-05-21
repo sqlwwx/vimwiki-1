@@ -3,14 +3,12 @@
 
 === Books and Documents  ===
 
-tmux Productive Mouse-Free Development
  * [[http://pragprog.com/book/bhtmux/tmux|tmux Productive Mouse-Free Development]]  ^_*Excellent!! Highly recommend!!_*^
    </br>*I finished reading the book in 4-hours and now i'am a tmux master!!!*
    </br>*Everything about tmux in my mind is so fresh that i don't need to write anything down.*
 
-=== Examples ===
- # tmux.conf
-   {{{
+=== Configuration ===
+  {{{ class="brush: bash"; title="tmux.conf"
 #
 # tmux config file based on [tmux Productive Mouse-Free Develoment]
 #
@@ -107,4 +105,7 @@ bind -t vi-copy 'y' copy-selection
 
 # Avoids renaming windows
 setw -g allow-rename off
-   }}}
+  }}}
+
+=== Examples ===
+  # `gem install tmuxinator #install tmuxinator`

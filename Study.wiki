@@ -12,6 +12,10 @@
   - LPIC 304
  * DBA(Oracle/DB2/Postgresql)
 === *Programming* ===
+ * [[Ruby]]
+ * Python
+ * C
+ * [[Shell]]
 === *Network* ===
 === *Information Security* ===
  * [[SSH]]
@@ -19,7 +23,7 @@
 === *WIndows* ===
 === *Software Engineering* ===
 === *Productive Tools* ===
- * Vim
+ * [[Vim]]
  * [[tmux]]
 === *Cloud* ===
 === *Others* ===

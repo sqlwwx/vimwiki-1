@@ -2,12 +2,45 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shCore.css" />
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAS3.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushErlang.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJavaFX.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPerl.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSass.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shLegacy.js"></script>
+<script type="text/javascript">
+  SyntaxHighlighter.all();
+</script>
 <title>SSH</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-07 15:06:21 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 11:52:38 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -250,6 +283,141 @@ AllowTcpForwarding no
 </pre>
 
 </ul>
+<li>
+<strong>Chapter 7: SSH Keys</strong>
+
+<ul>
+<li>
+<strong>Passphrase</strong>
+
+<ol>
+<li>
+A passphrase at least several words long.
+
+<li>
+<a href="http://www.diceware.com">diceware</a> can generate a good passphrase.
+
+</ol>
+<li>
+<strong>Hail Mary Cloud</strong>
+       </br>scan the whole internet for SSH Server.
+
+<li>
+<strong>SSH Agent</strong>
+
+<ol>
+<li>
+cache private key.
+
+<li>
+do not guarantee security.
+
+</ol>
+<li>
+<strong>Disabling Password</strong>
+<pre>
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+PubkeyAuthentication yes
+</pre>
+
+<li>
+<strong>Agent Forwarding</strong>
+       </br>forward authentication back to client.
+
+<ol>
+<li>
+eval `ssh-agent
+       ` #execute ssh-agent and export environment variables
+
+<li>
+<code>echo $SSH_AUTH_SOCK #SSH_AGENT_PID</code>
+
+<li>
+ 
+<pre>
+AllowAgentForwarding yes # sshd_config
+</pre>
+
+<li>
+ 
+<pre>
+ForwardAgent yes #ssh_config
+</pre>
+
+</ol>
+</ul>
+<li>
+<strong>Chapter 8: X11 Forwarding</strong>
+
+<ol>
+<li>
+ 
+<pre>
+X11Forwarding yes # sshd_config
+</pre>
+
+<li>
+ 
+<pre>
+ForwardX11 yes        #ssh_config
+ForwardX11Trusted yes #ssh_config
+</pre>
+
+</ol>
+<li>
+<strong>Chapter 9: Port Forwarding</strong>
+
+<ol>
+<li>
+<strong>Local Port Forwarding</strong>
+         </br>redirects client port to server port
+
+<li>
+<strong>Remote Port Forwarding</strong>
+         </br>redirects server port to client port
+
+<li>
+<strong>Dynamic Port Forwarding</strong>
+         </br>ssh act as SOCKS proxy on the client, redirects all client traffic to server
+
+<li>
+<strong>Privileged Prots</strong>
+         </br>On Unix-like systems, Only root can bind TCP ports below 1024(reserved for system use).
+
+<li>
+<strong>Restricting Port Forwarding</strong>
+<pre>
+AllowTcpForwarding yes        #sshd_config, default: yes
+GatewayPorts       yes        #sshd_config, default: no
+PermitOpen localhost:25       #sshd_config
+</pre>
+
+</ol>
+<li>
+<strong>Chapter 10: Keeping SSH Connections Open</strong>
+
+<ol>
+<li>
+<strong>TCP KeepAlive</strong>
+<pre>
+TCPKeepAlive yes # sshd_config &amp; ssh_config
+</pre>
+
+<li>
+<strong>SSH KeepAlive</strong>
+<pre>
+#server side sshd_config
+ClientAliveInterval 90 #how many seconds the connection needs to be idle before the host sends a keepalive request.
+ClientAliveCountMax 5  #how many keepalives it needs to send without receiving a response
+</pre>
+<pre>
+#client side ssh_config
+ServerAliveInterval 90 #how many seconds the connection needs to be idle before the host sends a keepalive request.
+ServerAliveCountMax 5  #how many keepalives it needs to send without receiving a response
+</pre>
+
+</ol>
 </ol>
 </ul>
 
@@ -281,6 +449,24 @@ AllowTcpForwarding no
 
 <li>
 <code>scp -rp dir hostname: #recursively copy a directory</code>
+
+<li>
+<code>ssh-keygen -A #genarate all missing key</code>
+
+<li>
+<code>ssh-keygen -t ecdsa -f filename -N '' #genarate ecdsa keypair without passphrase</code>
+
+<li>
+<code>cat .ssh/id_rsa.pub | ssh server "cat &gt;&gt; ~/.ssh/authorized_keys" #send user public key to server</code>
+
+<li>
+<code>ssh -X hostname #connect hostnmae by X11</code>
+
+<li>
+<code>ssh -f hostname xterm #run xterm on the host and client got to background</code>
+
+<li>
+<code>ssh -fNL localport:remotehost:remotename #run Local Port Forwarding and client got to background</code>
 
 </ol>
 

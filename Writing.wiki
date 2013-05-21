@@ -1,5 +1,55 @@
  = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
- = constructing =
+ == Building your own services on aws ==
 
+=== Basic Setup ===
+* Lanuching base OS
+  # Lanuches a t1.micro instance(amazon linux ami) on aws tokyo region using prepared ssh key.(a reserved t1.micro insntace: 105 Dollars/3years)
+  # Security Group: ssh(22) only, no icmp(no ping response).
+  # Attaches a EIP(Global IPV4:  54.249.118.215) to the instance.
+  # Registers a domain name cgeeker.com from [[www.onamae.com|onamae]].(920 YEN * 3years = 2760 YEN)
+  # Binds dns01.cgeeker.com to EIP. (A record, dns01: i will build a DNS Server)
+  # Allocates 32GB EBS to root and resize it by `resize2fs /dev/sda1`.
+
+* Customizing the OS
+  # Enables epel repository. `/etc/yum.repos.d/epel.repo`
+  # Modifies deamon service only left some services like this: `chkconfig --list | grep 3:on`
+    {{{
+atd             0:off   1:off   2:off   3:on    4:on    5:on    6:off
+blk-availability        0:off   1:on    2:on    3:on    4:on    5:on    6:off
+cloud-init      0:off   1:off   2:on    3:on    4:on    5:on    6:off
+cloud-init-user-scripts 0:off   1:off   2:on    3:on    4:on    5:on    6:off
+crond           0:off   1:off   2:on    3:on    4:on    5:on    6:off
+iptables        0:off   1:off   2:on    3:on    4:on    5:on    6:off
+irqbalance      0:off   1:off   2:off   3:on    4:on    5:on    6:off
+lvm2-monitor    0:off   1:on    2:on    3:on    4:on    5:on    6:off
+network         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+ntpd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+rsyslog         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sshd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sysstat         0:off   1:on    2:on    3:on    4:on    5:on    6:off
+    }}}
+  # Sets hostname
+    {{{
+HOSTNAME=dns01.cgeeker.com #/etc/sysconfig/network
+    }}}
+    {{{
+domain cgeeker.com #/etc/resolv.conf
+    }}}
+  # Disables ipv6
+    {{{
+install ipv6 /bin/ture #/etc/modprobe.d/disable-ipv6.conf, replace the installation of ipv6 with /bin/ture
+    }}}
+    {{{
+NETWORKING_IPV6=no
+IPV6INIT=no
+IPV6_ROUTER=no
+IPV6_AUTOCONF=no
+IPV6FORWARDING=no
+IPV6TO4INIT=no
+IPV6_CONTROL_RADVD=no
+    }}}
+
+* [[Vim|Building VIM]]
+* [[tmux|Building tmux]]

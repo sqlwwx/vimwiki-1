@@ -2,12 +2,45 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shCore.css" />
+<link type="text/css" rel="stylesheet" href="SyntaxHighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushAS3.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushErlang.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJavaFX.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPerl.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSass.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="SyntaxHighlighter/scripts/shLegacy.js"></script>
+<script type="text/javascript">
+  SyntaxHighlighter.all();
+</script>
 <title>Writing</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-07 11:42:35 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 11:52:39 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -21,7 +54,96 @@
 <h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
-<h1 id="toc_2" class="justcenter">constructing</h1>
+<h2 id="toc_1.1" class="justcenter">Building your own services on aws</h2>
+
+<h3 id="toc_1.1.1">Basic Setup</h3>
+<ul>
+<li>
+Lanuching base OS
+
+<ol>
+<li>
+Lanuches a t1.micro instance(amazon linux ami) on aws tokyo region using prepared ssh key.(a reserved t1.micro insntace: 105 Dollars/3years)
+
+<li>
+Security Group: ssh(22) only, no icmp(no ping response).
+
+<li>
+Attaches a EIP(Global IPV4:  54.249.118.215) to the instance.
+
+<li>
+Registers a domain name cgeeker.com from <a href="www.onamae.com.html">onamae</a>.(920 YEN * 3years = 2760 YEN)
+
+<li>
+Binds dns01.cgeeker.com to EIP. (A record, dns01: i will build a DNS Server)
+
+<li>
+Allocates 32GB EBS to root and resize it by <code>resize2fs /dev/sda1</code>.
+
+</ol>
+</ul>
+
+<ul>
+<li>
+Customizing the OS
+
+<ol>
+<li>
+Enables epel repository. <code>/etc/yum.repos.d/epel.repo</code>
+
+<li>
+Modifies deamon service only left some services like this: <code>chkconfig --list | grep 3:on</code>
+<pre>
+atd             0:off   1:off   2:off   3:on    4:on    5:on    6:off
+blk-availability        0:off   1:on    2:on    3:on    4:on    5:on    6:off
+cloud-init      0:off   1:off   2:on    3:on    4:on    5:on    6:off
+cloud-init-user-scripts 0:off   1:off   2:on    3:on    4:on    5:on    6:off
+crond           0:off   1:off   2:on    3:on    4:on    5:on    6:off
+iptables        0:off   1:off   2:on    3:on    4:on    5:on    6:off
+irqbalance      0:off   1:off   2:off   3:on    4:on    5:on    6:off
+lvm2-monitor    0:off   1:on    2:on    3:on    4:on    5:on    6:off
+network         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+ntpd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+rsyslog         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sshd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sysstat         0:off   1:on    2:on    3:on    4:on    5:on    6:off
+</pre>
+
+<li>
+Sets hostname
+<pre>
+HOSTNAME=dns01.cgeeker.com #/etc/sysconfig/network
+</pre>
+<pre>
+domain cgeeker.com #/etc/resolv.conf
+</pre>
+
+<li>
+Disables ipv6
+<pre>
+install ipv6 /bin/ture #/etc/modprobe.d/disable-ipv6.conf, replace the installation of ipv6 with /bin/ture
+</pre>
+<pre>
+NETWORKING_IPV6=no
+IPV6INIT=no
+IPV6_ROUTER=no
+IPV6_AUTOCONF=no
+IPV6FORWARDING=no
+IPV6TO4INIT=no
+IPV6_CONTROL_RADVD=no
+</pre>
+
+</ol>
+</ul>
+
+<ul>
+<li>
+<a href="Vim.html">Building VIM</a>
+
+<li>
+<a href="tmux.html">Building tmux</a>
+
+</ul>
 
 </body>
 </html>

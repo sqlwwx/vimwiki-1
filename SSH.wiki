@@ -96,6 +96,75 @@ ChrootDirectory %h                      #chroot
 ForceCommand internal-sftp
 AllowTcpForwarding no
        }}}
+   # *Chapter 7: SSH Keys*
+     - *Passphrase*
+       # A passphrase at least several words long.
+       # [[http://www.diceware.com|diceware]] can generate a good passphrase.
+     - *Hail Mary Cloud*
+       </br>scan the whole internet for SSH Server.
+     - *SSH Agent*
+       # cache private key.
+       # do not guarantee security.
+     - *Disabling Password*
+       {{{
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+PubkeyAuthentication yes
+       }}}
+     - *Agent Forwarding*
+       </br>forward authentication back to client.
+       # eval `ssh-agent
+       ` #execute ssh-agent and export environment variables
+       # `echo $SSH_AUTH_SOCK #SSH_AGENT_PID`
+       #  
+         {{{
+AllowAgentForwarding yes # sshd_config
+         }}}
+       #  
+         {{{
+ForwardAgent yes #ssh_config
+         }}}
+   # *Chapter 8: X11 Forwarding*
+       #  
+         {{{
+X11Forwarding yes # sshd_config
+         }}}
+       #  
+         {{{
+ForwardX11 yes        #ssh_config
+ForwardX11Trusted yes #ssh_config
+         }}}
+   # *Chapter 9: Port Forwarding*
+       # *Local Port Forwarding*
+         </br>redirects client port to server port
+       # *Remote Port Forwarding*
+         </br>redirects server port to client port
+       # *Dynamic Port Forwarding*
+         </br>ssh act as SOCKS proxy on the client, redirects all client traffic to server
+       # *Privileged Prots*
+         </br>On Unix-like systems, Only root can bind TCP ports below 1024(reserved for system use).
+       # *Restricting Port Forwarding*
+         {{{
+AllowTcpForwarding yes        #sshd_config, default: yes
+GatewayPorts       yes        #sshd_config, default: no
+PermitOpen localhost:25       #sshd_config
+         }}}
+   # *Chapter 10: Keeping SSH Connections Open*
+       # *TCP KeepAlive*
+         {{{
+TCPKeepAlive yes # sshd_config & ssh_config
+         }}}
+       # *SSH KeepAlive*
+         {{{
+#server side sshd_config
+ClientAliveInterval 90 #how many seconds the connection needs to be idle before the host sends a keepalive request.
+ClientAliveCountMax 5  #how many keepalives it needs to send without receiving a response
+         }}}
+         {{{
+#client side ssh_config
+ServerAliveInterval 90 #how many seconds the connection needs to be idle before the host sends a keepalive request.
+ServerAliveCountMax 5  #how many keepalives it needs to send without receiving a response
+         }}}
 
 === Examples ===
  # `telnet/nc hostname port #OpenSSH Banner Grabbing`
@@ -107,4 +176,10 @@ AllowTcpForwarding no
  # `ssh -o Port=2222 hostname #Connect tohostname with 2222 port(command line options)`
  # `ssh-keygen -H #hashing ~/.ssh/known_hosts`
  # `scp -rp dir hostname: #recursively copy a directory`
+ # `ssh-keygen -A #genarate all missing key`
+ # `ssh-keygen -t ecdsa -f filename -N '' #genarate ecdsa keypair without passphrase`
+ # `cat .ssh/id_rsa.pub | ssh server "cat >> ~/.ssh/authorized_keys" #send user public key to server`
+ # `ssh -X hostname #connect hostnmae by X11`
+ # `ssh -f hostname xterm #run xterm on the host and client got to background`
+ # `ssh -fNL localport:remotehost:remotename #run Local Port Forwarding and client got to background`
 

@@ -1,0 +1,61 @@
+ = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
+
+=== Building Vim from source ===
+{{{ class="brush: bash"; title="buildvim.sh"
+#!/bin/sh
+
+# install package
+yum install -y \
+ncurses-devel tcl tcl-devel python2 python2-devel ruby ruby-devel perl \
+perl-devel perl-ExtUtils-Embed \automake libevent-devel libevent libselinux \
+libselinux-devel libsepol libsepol-devel gtk2 gtk2-devel libXt libXt-devel \
+libXtst libXtst-devel glib2-devel libX*-devel cairo-devel pango-devel \
+cups-libs gettext-devel gettext-libs
+
+# configure (full feature)
+./configure --prefix=/opt/vim --enable-selinux --enable-luainterp \
+  --enable-perlinterp --enable-pythoninterp --enable-python3interp \
+  --enable-tclinterp --enable-rubyinterp --enable-multibyte --disable-gui \
+  --with-features=huge --enable-fail-if-missing=yes  \
+  --enable-fontset --enable-sysmouse --with-compiledby="root@cgeeker.com" \
+  --with-python3-config-dir=/opt/python3/lib/python3.3/config-3.3m/ \
+  --with-python-config-dir=/usr/lib64/python2.6/config --enable-acl \
+  --enable-gui=gnome2 --enable-xim --enable-fontset --with-x
+
+# compile & install
+make ARCH=x86_64 && make install
+}}}
+
+=== Configuration ===
+  * *vimrc* [[Configuration/vim/|vimrc]]
+
+  * *plugins*
+    # taglist(util)
+    # nerdtree(util)
+    # snipmate(util)
+    # vimwiki(util)
+    # c(util)
+    # molokai(colorscheme)
+    # jellybeans(colorscheme)
+
+=== Books and Documents  ===
+  * [[http://pragprog.com/book/dnvim/practical-vim|Practical Vim: Edit Text at the Speed of Thought]]  ^_*Excellent!! Highly recommend!!_*^
+    # *Chapter 1: Introducing OpenSSH*
+      - created in 1995 for secure communication across private, public, and hostile networks.
+      - openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
+      - SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
+        </br>*Do not use SSH version 1!!!*
+        # Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
+        # SSH-1 session can be decoded in real time by programs such as [[http://ettercap.github.io/ettercap/|Ettercap]].
+  * [[http://www.thegeekstuff.com/vim-101-hacks-ebook/|Vim 101 HACKS]]  ^_*Very Good!! recommend!!_*^
+    # *Chapter 1: Introducing OpenSSH*
+      - created in 1995 for secure communication across private, public, and hostile networks.
+      - openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
+      - SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
+        </br>*Do not use SSH version 1!!!*
+        # Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
+
+=== Examples ===
+  # `vim -p files #open one page for each file, such as :tabe file`
+

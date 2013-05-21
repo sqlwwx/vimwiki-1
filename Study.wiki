@@ -27,3 +27,4 @@
  * [[tmux]]
 === *Cloud* ===
 === *Others* ===
+ * [[vimwiki]]

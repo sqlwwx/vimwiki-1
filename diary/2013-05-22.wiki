@@ -1,0 +1,43 @@
+%template diary
+
+ = [[../index|Top]] [[../Study|Study]] [[../Writing|Writing]] [[diary|Diary]] [[../Bai Xuesong|About]] =
+ ==== Hi, Welcome to [[../Bai Xuesong|Bai Xuesong]]'s wiki. ====
+
+===== sysv system service startup shell =====
+    {{{ class="brush: bash; highlight: [2,3,5,23,25];" title="/etc/init.d/servicename"
+#!/bin/sh
+# chkconfig: levels start-priority stop-priority
+# description: service description
+
+. /etc/rc.d/init.d/functions
+
+start()
+{ #do start
+}
+
+stop()
+{ #do stop
+}
+
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status servicename
+        ;;
+    restart|reload)
+        stop
+        start
+        ;;
+    *)
+        ;;
+esac
+
+exit 0
+
+    }}}
+

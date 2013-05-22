@@ -37,10 +37,11 @@
 </script>
 <title>Vim</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 12:19:20 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 12:28:22 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -51,11 +52,12 @@
    </form>
    <!-- SiteSearch Google -->
 
-<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h3 id="toc_1.0.1">Building Vim from source</h3>
-<pre  class="brush: bash"; title="buildvim.sh">
+
+<pre  class="brush: bash;" title="buildvim.sh">
 #!/bin/sh
 
 # install package
@@ -64,7 +66,13 @@ ncurses-devel tcl tcl-devel python2 python2-devel ruby ruby-devel perl \
 perl-devel perl-ExtUtils-Embed \automake libevent-devel libevent libselinux \
 libselinux-devel libsepol libsepol-devel gtk2 gtk2-devel libXt libXt-devel \
 libXtst libXtst-devel glib2-devel libX*-devel cairo-devel pango-devel \
-cups-libs gettext-devel gettext-libs
+cups-libs gettext-devel gettext-libs mercurial
+
+# get source
+hg clone https://vim.googlecode.com/hg/ vim
+hg pull
+hg update
+cd vim
 
 # configure (full feature)
 ./configure --prefix=/opt/vim --enable-selinux --enable-luainterp \
@@ -91,92 +99,117 @@ make ARCH=x86_64 &amp;&amp; make install
 <li>
 <strong>plugins</strong>
 
-<ol>
-<li>
-taglist(util)
-
-<li>
-nerdtree(util)
-
-<li>
-snipmate(util)
-
-<li>
-vimwiki(util)
-
-<li>
-c(util)
-
-<li>
-molokai(colorscheme)
-
-<li>
-jellybeans(colorscheme)
-
-</ol>
 </ul>
+<table>
+<tr>
+<th>
+Script
+</th>
+<th>
+Type
+</th>
+<th>
+Summary
+</th>
+</tr>
+<tr>
+<td>
+taglist.vim
+</td>
+<td>
+utility
+</td>
+<td>
+Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+</td>
+</tr>
+<tr>
+<td>
+The NERD tree
+</td>
+<td>
+utility
+</td>
+<td>
+A tree explorer plugin for navigating the filesystem
+</td>
+</tr>
+<tr>
+<td>
+snipMate
+</td>
+<td>
+utility
+</td>
+<td>
+TextMate-style snippets for Vim
+</td>
+</tr>
+<tr>
+<td>
+vimwiki
+</td>
+<td>
+utility
+</td>
+<td>
+Personal Wiki for Vim
+</td>
+</tr>
+<tr>
+<td>
+c.vim
+</td>
+<td>
+utility
+</td>
+<td>
+C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc.
+</td>
+</tr>
+<tr>
+<td>
+molokai
+</td>
+<td>
+color scheme
+</td>
+<td>
+A port of the monokai scheme for TextMate
+</td>
+</tr>
+<tr>
+<td>
+jellybeans
+</td>
+<td>
+color scheme
+</td>
+<td>
+Colorful, dark color scheme
+</td>
+</tr>
+</table>
 
 <h3 id="toc_1.0.3">Books and Documents</h3>
 <ul>
 <li>
 <a href="http://pragprog.com/book/dnvim/practical-vim">Practical Vim: Edit Text at the Speed of Thought</a>  <sup><small><em><strong>Excellent!! Highly recommend!!</em></strong></small></sup>
 
-<ol>
-<li>
-<strong>Chapter 1: Introducing OpenSSH</strong>
-
-<ul>
-<li>
-created in 1995 for secure communication across private, public, and hostile networks.
-
-<li>
-openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
-
-<li>
-SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
-        </br><strong>Do not use SSH version 1!!!</strong>
-
-<ol>
-<li>
-Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
-
-<li>
-SSH-1 session can be decoded in real time by programs such as <a href="http://ettercap.github.io/ettercap/">Ettercap</a>.
-
-</ol>
-</ul>
-</ol>
 <li>
 <a href="http://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 HACKS</a>  <sup><small><em><strong>Very Good!! recommend!!</em></strong></small></sup>
 
-<ol>
-<li>
-<strong>Chapter 1: Introducing OpenSSH</strong>
-
-<ul>
-<li>
-created in 1995 for secure communication across private, public, and hostile networks.
-
-<li>
-openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
-
-<li>
-SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
-        </br><strong>Do not use SSH version 1!!!</strong>
-
-<ol>
-<li>
-Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
-
-</ol>
-</ul>
-</ol>
 </ul>
 
-<h3 id="toc_1.0.4">Examples</h3>
+<h3 id="toc_1.0.4">Tips</h3>
 <ol>
 <li>
-<code>vim -p files #open one page for each file, such as :tabe file</code>
+<strong>Redraws Screen</strong>
+<pre  class="brush: bash;">
+z&lt;ENTER&gt; # the current line =&gt; Top
+z-       # the current line =&gt; Bottom
+z.       # the current line =&gt; Middle
+</pre>
 
 </ol>
 

@@ -1,4 +1,4 @@
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Books and Documents  ===
@@ -54,15 +54,15 @@ AllowGroups allowgrouplist          #PRIority Level 04 (Low)
      - *Wildcards*
        # ? matches exactly on character
        # * matches zero or more characters
-         </br>`HOST !*.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.`
+         </br>`HOST !*.dns02.cgeeker.com *.dns01.cgeeker.com #Multiple HOSTs separated with a space.`
      - *Matches*
        # Users and Groups
          </br>`Match User bxs,byz,wn #Multiple USERs separated with a comma.`
        # Address and HOST
          </br>`Match Address 192.0.2.0/26, 192.0.2.192/26 #Multiple IPs separated with a comma.`
-         </br>`Match HOST *.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.`
+         </br>`Match HOST *.dns01.cgeeker.com *.dns02.cgeeker.com #Multiple HOSTs separated with a space.`
        # Multiple Mix Match Conditions
-         </br>`Match HOST *.aws.baiyuanzhi.com User byz #Multiple Match Conditions separated with a space.`
+         </br>`Match HOST *.dns01.cgeeker.com User byz #Multiple Match Conditions separated with a space.`
      - *Do not allow users to SSH into the system as root*
      - *Chrooting Users*
        </br>[[http://olivier.sessink.nl/jailkit/|jailkit]] _*can easily populate a chroot.*_

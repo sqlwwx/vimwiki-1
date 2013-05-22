@@ -1,4 +1,4 @@
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Books and Documents  ===
@@ -8,7 +8,7 @@
    </br>*Everything about tmux in my mind is so fresh that i don't need to write anything down.*
 
 === Configuration ===
-  {{{ class="brush: bash"; title="tmux.conf"
+  {{{ class="brush: bash;" title="tmux.conf"
 #
 # tmux config file based on [tmux Productive Mouse-Free Develoment]
 #

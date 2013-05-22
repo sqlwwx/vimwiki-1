@@ -1,8 +1,9 @@
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Building Vim from source ===
-{{{ class="brush: bash"; title="buildvim.sh"
+
+{{{ class="brush: bash;" title="buildvim.sh"
 #!/bin/sh
 
 # install package
@@ -11,7 +12,13 @@ ncurses-devel tcl tcl-devel python2 python2-devel ruby ruby-devel perl \
 perl-devel perl-ExtUtils-Embed \automake libevent-devel libevent libselinux \
 libselinux-devel libsepol libsepol-devel gtk2 gtk2-devel libXt libXt-devel \
 libXtst libXtst-devel glib2-devel libX*-devel cairo-devel pango-devel \
-cups-libs gettext-devel gettext-libs
+cups-libs gettext-devel gettext-libs mercurial
+
+# get source
+hg clone https://vim.googlecode.com/hg/ vim
+hg pull
+hg update
+cd vim
 
 # configure (full feature)
 ./configure --prefix=/opt/vim --enable-selinux --enable-luainterp \
@@ -31,31 +38,24 @@ make ARCH=x86_64 && make install
   * *vimrc* [[Configuration/vim/|vimrc]]
 
   * *plugins*
-    # taglist(util)
-    # nerdtree(util)
-    # snipmate(util)
-    # vimwiki(util)
-    # c(util)
-    # molokai(colorscheme)
-    # jellybeans(colorscheme)
+| Script        | Type         | Summary                                                                        |
+|---------------|--------------|--------------------------------------------------------------------------------|
+| taglist.vim   | utility      | Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)   |
+| The NERD tree | utility      | A tree explorer plugin for navigating the filesystem                           |
+| snipMate      | utility      | TextMate-style snippets for Vim                                                |
+| vimwiki       | utility      | Personal Wiki for Vim                                                          |
+| c.vim         | utility      | C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. |
+| molokai       | color scheme | A port of the monokai scheme for TextMate                                      |
+| jellybeans    | color scheme | Colorful, dark color scheme                                                    |
 
 === Books and Documents  ===
   * [[http://pragprog.com/book/dnvim/practical-vim|Practical Vim: Edit Text at the Speed of Thought]]  ^_*Excellent!! Highly recommend!!_*^
-    # *Chapter 1: Introducing OpenSSH*
-      - created in 1995 for secure communication across private, public, and hostile networks.
-      - openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
-      - SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
-        </br>*Do not use SSH version 1!!!*
-        # Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
-        # SSH-1 session can be decoded in real time by programs such as [[http://ettercap.github.io/ettercap/|Ettercap]].
   * [[http://www.thegeekstuff.com/vim-101-hacks-ebook/|Vim 101 HACKS]]  ^_*Very Good!! recommend!!_*^
-    # *Chapter 1: Introducing OpenSSH*
-      - created in 1995 for secure communication across private, public, and hostile networks.
-      - openSSH is developed by the openBSD project. openSSH is available under BSD-style license and comes in two versions: openBSD and Portable openSSH.
-      - SSH protocol comes in two version, SSH-1 and SSH-2. SSH-1 is vulnerable to attacks.
-        </br>*Do not use SSH version 1!!!*
-        # Intruder can hijack the connection and insert arbitrary text into SSH-1 session.
 
-=== Examples ===
-  # `vim -p files #open one page for each file, such as :tabe file`
-
+=== Tips ===
+  # *Redraws Screen*
+    {{{ class="brush: bash;"
+z<ENTER> # the current line => Top
+z-       # the current line => Bottom
+z.       # the current line => Middle
+    }}}

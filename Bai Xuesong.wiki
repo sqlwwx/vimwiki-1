@@ -1,21 +1,20 @@
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
-== My name is Bai Xuesong, I'm a software engineer. ==
+=== My name is Bai Xuesong(Haku Yukimatsu in japan). </br>I'm a Software Engineer, now live in tokyo. ===
 
 == Education: ==
-Sep 1992 to Jul 1996
-[[http://www.tju.edu.cn/english/|TianJin University, TianJin, China]]
+  Sep 1992 to Jul 1996
+  [[http://www.tju.edu.cn/english/|TianJin University, TianJin, China]]
+  </br>Bachelor degree of Electronic Engineering
 
-Bachelor degree of Electronic Engineering
+== Qualifications: ==
+  * ~~CCNA(expired on Sep 2004)~~
+  * LPIC 301/302/_*303 Learning*_
+  * DB2 9 Advanced DBA
+  * DB2 9 Application Developer
+  * Oracle 11g OCP/_*OCM Learning*_
+  * OSSDB(postgresql) Silver/_*Gold Learning*_
 
-== Qualification: ==
-* CCNA
-* LPIC 301/302
-* DB2 Advanced DBA/Application Developer
-* Oracle OCP
-* OSSDB Silver(Postgresql)
-
-== Family: ==
-My beautiful wife and a naughty son(Bai Yuanzhi - This is 
-the origin of the domain name. `;-)`)
+== Skills: ==
+  * Programming Language: c/shell/java/python/ruby/groovy/sql

@@ -37,10 +37,11 @@
 </script>
 <title>vimwiki</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 13:48:23 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 12:28:23 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -52,20 +53,20 @@
    <!-- SiteSearch Google -->
 
 
-<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h3 id="toc_1.0.1">Configuration</h3>
 <ol>
 <li>
 <strong>add last modified date</strong>
-<pre  class="brush: diff"; title="~/.vim/autoload/html.vim">
+<pre  class="brush: diff;" title="~/.vim/autoload/html.vim">
 1491a1492,1494
 &gt;     let changetime = strftime("%Y-%m-%d %H:%M:%S %Z") "YYYYMMDD hh:mm:ss ZONE
-&gt;     call map(html_lines, 'substitute(v:val, "2013-05-21 13:48:23 JST", changetime, "g")')
+&gt;     call map(html_lines, 'substitute(v:val, "%change_time%", changetime, "g")')
 &gt;
 </pre>
-<pre  class="brush: html"; title="~/vimwiki/templates/default.vim">
+<pre  class="brush: html; highlight: [43];" title="~/vimwiki/templates/default.vim">
 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -108,7 +109,7 @@
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div style="position:absolute;top:10;right:0"&gt;
-    &lt;span class="justleft"&gt;&lt;font size="2"&gt;&lt;strong&gt;This page was last modified on 2013-05-21 13:48:23 JST,&amp;nbsp;&amp;nbsp;Powered by &lt;a href="http://code.google.com/p/vimwiki/"&gt;&lt;font size="5"&gt;vimwiki&lt;/font&gt;&lt;/a&gt;.&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;
+    &lt;span class="justleft"&gt;&lt;font size="2"&gt;&lt;strong&gt;This page was last modified on [[%change_time%,&amp;nbsp;&amp;nbsp;Powered]] by &lt;a href="http://code.google.com/p/vimwiki/"&gt;&lt;font size="5"&gt;vimwiki&lt;/font&gt;&lt;/a&gt;.&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;!-- SiteSearch Google --&gt;
   &lt;form method="get" action="http://www.google.com/search" class="justleft"&gt;

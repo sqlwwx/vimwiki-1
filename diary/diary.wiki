@@ -1,0 +1,12 @@
+%template diary
+
+ = [[../index|Top]] [[../Study|Study]] [[../Writing|Writing]] [[diary|Diary]] [[../Bai Xuesong|About]] =
+ ==== Hi, Welcome to [[../Bai Xuesong|Bai Xuesong]]'s wiki. ====
+
+= Diary =
+
+== 2013 ==
+
+=== May ===
+  * [[2013-05-22]]
+

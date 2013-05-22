@@ -1,16 +1,16 @@
 
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Configuration ===
   # *add last modified date*
-    {{{ class="brush: diff"; title="~/.vim/autoload/html.vim"
+    {{{ class="brush: diff;" title="~/.vim/autoload/html.vim"
 1491a1492,1494
 >     let changetime = strftime("%Y-%m-%d %H:%M:%S %Z") "YYYYMMDD hh:mm:ss ZONE
->     call map(html_lines, 'substitute(v:val, "%changetime%", changetime, "g")')
+>     call map(html_lines, 'substitute(v:val, "%change_time%", changetime, "g")')
 >
     }}}
-    {{{ class="brush: html"; title="~/vimwiki/templates/default.vim"
+    {{{ class="brush: html; highlight: [43];" title="~/vimwiki/templates/default.vim"
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -53,7 +53,7 @@
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on %changetime%,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on [[%change_time%,&nbsp;&nbsp;Powered]] by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">

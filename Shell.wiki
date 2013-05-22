@@ -1,10 +1,10 @@
 
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
 === Examples ===
   # *named pipe*
-    {{{ class="brush: bash"; title="read-namedpipe.sh"
+    {{{ class="brush: bash; highlight: [5,8];" title="read-namedpipe.sh"
 #!/bin/bash
 
 pipe=/tmp/test-namedpipe
@@ -27,7 +27,7 @@ done
 
 echo "program read-namedpipe.sh exit."
     }}}
-    {{{ class="brush: bash"; title="write-namedpipe.sh"
+    {{{ class="brush: bash;" title="write-namedpipe.sh"
 #!/bin/bash
 
 pipe=/tmp/test-namedpipe

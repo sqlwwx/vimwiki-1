@@ -37,10 +37,11 @@
 </script>
 <title>SSH</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 11:52:38 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 12:28:21 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -51,7 +52,7 @@
    </form>
    <!-- SiteSearch Google -->
 
-<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h3 id="toc_1.0.1">Books and Documents</h3>
@@ -190,7 +191,7 @@ AllowGroups allowgrouplist          #PRIority Level 04 (Low)
 
 <li>
 * matches zero or more characters
-         </br><code>HOST !*.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.</code>
+         </br><code>HOST !*.dns02.cgeeker.com *.dns01.cgeeker.com #Multiple HOSTs separated with a space.</code>
 
 </ol>
 <li>
@@ -204,11 +205,11 @@ Users and Groups
 <li>
 Address and HOST
          </br><code>Match Address 192.0.2.0/26, 192.0.2.192/26 #Multiple IPs separated with a comma.</code>
-         </br><code>Match HOST *.aws.baiyuanzhi.com *.test.baiyuanzhi.com #Multiple HOSTs separated with a space.</code>
+         </br><code>Match HOST *.dns01.cgeeker.com *.dns02.cgeeker.com #Multiple HOSTs separated with a space.</code>
 
 <li>
 Multiple Mix Match Conditions
-         </br><code>Match HOST *.aws.baiyuanzhi.com User byz #Multiple Match Conditions separated with a space.</code>
+         </br><code>Match HOST *.dns01.cgeeker.com User byz #Multiple Match Conditions separated with a space.</code>
 
 </ol>
 <li>

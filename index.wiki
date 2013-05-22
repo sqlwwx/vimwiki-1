@@ -1,2 +1,7 @@
- = [[index|Top]] [[Study]] [[Writing]] [[Diary]] [[Bai Xuesong|About]] =
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
+
+==*Topics*==
+----
+=== [[Ruby]] [[Shell]] [[SSH]] [[Study]] [[tmux]] [[Vim]] [[vimwiki]] ===
+----

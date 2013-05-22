@@ -37,10 +37,11 @@
 </script>
 <title>Writing</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-21 11:52:39 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 12:28:22 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -51,7 +52,7 @@
    </form>
    <!-- SiteSearch Google -->
 
-<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="Diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
+<h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h2 id="toc_1.1" class="justcenter">Building your own services on aws</h2>
@@ -94,19 +95,19 @@ Enables epel repository. <code>/etc/yum.repos.d/epel.repo</code>
 <li>
 Modifies deamon service only left some services like this: <code>chkconfig --list | grep 3:on</code>
 <pre>
-atd             0:off   1:off   2:off   3:on    4:on    5:on    6:off
+atd                     0:off   1:off   2:off   3:on    4:on    5:on    6:off
 blk-availability        0:off   1:on    2:on    3:on    4:on    5:on    6:off
-cloud-init      0:off   1:off   2:on    3:on    4:on    5:on    6:off
+cloud-init              0:off   1:off   2:on    3:on    4:on    5:on    6:off
 cloud-init-user-scripts 0:off   1:off   2:on    3:on    4:on    5:on    6:off
-crond           0:off   1:off   2:on    3:on    4:on    5:on    6:off
-iptables        0:off   1:off   2:on    3:on    4:on    5:on    6:off
-irqbalance      0:off   1:off   2:off   3:on    4:on    5:on    6:off
-lvm2-monitor    0:off   1:on    2:on    3:on    4:on    5:on    6:off
-network         0:off   1:off   2:on    3:on    4:on    5:on    6:off
-ntpd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
-rsyslog         0:off   1:off   2:on    3:on    4:on    5:on    6:off
-sshd            0:off   1:off   2:on    3:on    4:on    5:on    6:off
-sysstat         0:off   1:on    2:on    3:on    4:on    5:on    6:off
+crond                   0:off   1:off   2:on    3:on    4:on    5:on    6:off
+iptables                0:off   1:off   2:on    3:on    4:on    5:on    6:off
+irqbalance              0:off   1:off   2:off   3:on    4:on    5:on    6:off
+lvm2-monitor            0:off   1:on    2:on    3:on    4:on    5:on    6:off
+network                 0:off   1:off   2:on    3:on    4:on    5:on    6:off
+ntpd                    0:off   1:off   2:on    3:on    4:on    5:on    6:off
+rsyslog                 0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sshd                    0:off   1:off   2:on    3:on    4:on    5:on    6:off
+sysstat                 0:off   1:on    2:on    3:on    4:on    5:on    6:off
 </pre>
 
 <li>

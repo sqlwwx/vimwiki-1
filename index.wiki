@@ -3,5 +3,5 @@
 
 ==*Topics*==
 ----
-=== [[Ruby]] [[Shell]] [[SSH]] [[Study]] [[tmux]] [[Vim]] [[vimwiki]] ===
+=== [[Ruby]] [[Shell]] [[SSH]] [[tmux]] [[Vim]] [[vimwiki]] ===
 ----

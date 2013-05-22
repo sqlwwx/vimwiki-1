@@ -35,7 +35,7 @@ make ARCH=x86_64 && make install
 }}}
 
 === Configuration ===
-  * *vimrc* [[Configuration/vim/|vimrc]]
+  * *vimrc* [[Files/vim/|vimrc]]
 
   * *plugins*
 | Script        | Type         | Summary                                                                        |

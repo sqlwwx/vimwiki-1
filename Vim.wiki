@@ -52,10 +52,17 @@ make ARCH=x86_64 && make install
   * [[http://pragprog.com/book/dnvim/practical-vim|Practical Vim: Edit Text at the Speed of Thought]]  ^_*Excellent!! Highly recommend!!_*^
   * [[http://www.thegeekstuff.com/vim-101-hacks-ebook/|Vim 101 HACKS]]  ^_*Very Good!! recommend!!_*^
 
-=== Tips ===
+=== Hacks ===
   # *Redraws Screen*
     {{{ class="brush: bash;"
 z<ENTER> # the current line => Top
 z-       # the current line => Bottom
 z.       # the current line => Middle
     }}}
+  # *Advanced modes*
+ 
+| Mode   | Key Binding   | Description                                                                              |
+|--------|---------------|------------------------------------------------------------------------------------------|
+| Visual | v/V/CTRL-V    | the movement commands extend a highlighted area. the only way to select a block of text. |
+| Select | gh/gH/gCTRL-H | like the MS-Windows selection mode.                                                      |
+| Ex     | gQ            | Like Command-line mode, but after entering a command you remain in Ex mode               |

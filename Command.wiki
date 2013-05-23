@@ -1,0 +1,56 @@
+
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
+ ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
+
+=== Tips ===
+  # *Filetype Indicators*
+    {{{ class="brush: c; highlight: [11,18];" title="ls -F (the last character)"
+/* Given these arguments describing a file, return the single-byte
+   type indicator, or 0.  */
+static char
+get_type_indicator (bool stat_ok, mode_t mode, enum filetype type)
+{
+  char c;
+
+  if (stat_ok ? S_ISREG (mode) : type == normal)
+    {
+      if (stat_ok && indicator_style == classify && (mode & S_IXUGO))
+        c = '*';
+      else
+        c = 0;
+    }
+  else
+    {
+      if (stat_ok ? S_ISDIR (mode) : type == directory || type == arg_directory)
+        c = '/';
+      else if (indicator_style == slash)
+        c = 0;
+      else if (stat_ok ? S_ISLNK (mode) : type == symbolic_link)
+        c = '@';
+      else if (stat_ok ? S_ISFIFO (mode) : type == fifo)
+        c = '|';
+      else if (stat_ok ? S_ISSOCK (mode) : type == sock)
+        c = '=';
+      else if (stat_ok && S_ISDOOR (mode))
+        c = '>';
+      else
+        c = 0;
+    }
+  return c;
+}
+    }}}
+    {{{ class="brush: c; highlight: [3,11,12];" title="ls -l (the first character)"
+/* Display letters and indicators for each filetype.
+   Keep these in sync with enum filetype.  */
+static char const filetype_letter[] = "?pcdb-lswd";
+
+/* Ensure that filetype and filetype_letter have the same
+   number of elements.  */
+verify (sizeof filetype_letter - 1 == arg_directory + 1);
+
+#define FILETYPE_INDICATORS       \
+  {             \
+    C_ORPHAN, C_FIFO, C_CHR, C_DIR, C_BLK, C_FILE,  \
+    C_LINK, C_SOCK, C_FILE, C_DIR     \
+  }
+    }}}

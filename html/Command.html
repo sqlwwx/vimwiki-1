@@ -35,13 +35,13 @@
 <script type="text/javascript">
   SyntaxHighlighter.all();
 </script>
-<title>Study</title>
+<title>Command</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 14:45:04 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 22:24:02 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -52,87 +52,66 @@
    </form>
    <!-- SiteSearch Google -->
 
+
 <h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
-<h3 id="toc_1.0.1"><strong>Certification</strong></h3>
-<ul>
+<h3 id="toc_1.0.1">Tips</h3>
+<ol>
 <li>
-CCNA
+<strong>Filetype Indicators</strong>
+<pre  class="brush: c; highlight: [11,18];" title="ls -F (the last character)">
+/* Given these arguments describing a file, return the single-byte
+   type indicator, or 0.  */
+static char
+get_type_indicator (bool stat_ok, mode_t mode, enum filetype type)
+{
+  char c;
 
-<li>
-LPIC
+  if (stat_ok ? S_ISREG (mode) : type == normal)
+    {
+      if (stat_ok &amp;&amp; indicator_style == classify &amp;&amp; (mode &amp; S_IXUGO))
+        c = '*';
+      else
+        c = 0;
+    }
+  else
+    {
+      if (stat_ok ? S_ISDIR (mode) : type == directory || type == arg_directory)
+        c = '/';
+      else if (indicator_style == slash)
+        c = 0;
+      else if (stat_ok ? S_ISLNK (mode) : type == symbolic_link)
+        c = '@';
+      else if (stat_ok ? S_ISFIFO (mode) : type == fifo)
+        c = '|';
+      else if (stat_ok ? S_ISSOCK (mode) : type == sock)
+        c = '=';
+      else if (stat_ok &amp;&amp; S_ISDOOR (mode))
+        c = '&gt;';
+      else
+        c = 0;
+    }
+  return c;
+}
+</pre>
+<pre  class="brush: c; highlight: [3,11,12];" title="ls -l (the first character)">
+/* Display letters and indicators for each filetype.
+   Keep these in sync with enum filetype.  */
+static char const filetype_letter[] = "?pcdb-lswd";
 
-<ul>
-<li>
-LPIC 101/LPIC 102
+/* Ensure that filetype and filetype_letter have the same
+   number of elements.  */
+verify (sizeof filetype_letter - 1 == arg_directory + 1);
 
-<li>
-LPIC 201/LPIC 202
+#define FILETYPE_INDICATORS       \
+  {             \
+    C_ORPHAN, C_FIFO, C_CHR, C_DIR, C_BLK, C_FILE,  \
+    C_LINK, C_SOCK, C_FILE, C_DIR     \
+  }
+</pre>
 
-<li>
-LPIC 301
-
-<li>
-LPIC 302
-
-<li>
-LPIC 303
-
-<li>
-LPIC 304
-
-</ul>
-<li>
-DBA(Oracle/DB2/Postgresql)
-
-</ul>
-<h3 id="toc_1.0.2"><strong>Programming</strong></h3>
-<ul>
-<li>
-<a href="Ruby.html">Ruby</a>
-
-<li>
-Python
-
-<li>
-C
-
-<li>
-<a href="Shell.html">Shell</a>
-
-</ul>
-<h3 id="toc_1.0.3"><strong>Network</strong></h3>
-<h3 id="toc_1.0.4"><strong>Information Security</strong></h3>
-<ul>
-<li>
-<a href="SSH.html">SSH</a>
-
-</ul>
-<h3 id="toc_1.0.5"><strong>Unix/Linux</strong></h3>
-<ul>
-<li>
-<a href="Command.html">Command</a>
-
-</ul>
-<h3 id="toc_1.0.6"><strong>WIndows</strong></h3>
-<h3 id="toc_1.0.7"><strong>Software Engineering</strong></h3>
-<h3 id="toc_1.0.8"><strong>Productive Tools</strong></h3>
-<ul>
-<li>
-<a href="Vim.html">Vim</a>
-
-<li>
-<a href="tmux.html">tmux</a>
-
-</ul>
-<h3 id="toc_1.0.9"><strong>Cloud</strong></h3>
-<h3 id="toc_1.0.10"><strong>Others</strong></h3>
-<ul>
-<li>
-<a href="vimwiki.html">vimwiki</a>
-
-</ul>
+</ol>
 
 </body>
 </html>

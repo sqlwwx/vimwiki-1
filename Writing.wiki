@@ -8,8 +8,8 @@
   # Lanuches a t1.micro instance(amazon linux ami) on aws tokyo region using prepared ssh key.(a reserved t1.micro insntace: 105 Dollars/3years)
   # Security Group: ssh(22) only, no icmp(no ping response).
   # Attaches a EIP(Global IPV4:  54.249.118.215) to the instance.
-  # Registers a domain name cgeeker.com from [[http://www.onamae.com|onamae]].(920 YEN * 3years = 2760 YEN)
-  # Binds dns01.cgeeker.com to EIP. (A record, dns01: i will build a DNS Server)
+  # Registers a domain name rollingbedsheet.com from [[http://www.onamae.com|onamae]].(920 YEN * 3years = 2760 YEN)
+  # Binds www.rollingbedsheet.com to EIP. (A record, www: i will build a DNS Server)
   # Allocates 32GB EBS to root and resize it by `resize2fs /dev/sda1`.
 
 * Customizing the OS
@@ -32,10 +32,10 @@ sysstat                 0:off   1:on    2:on    3:on    4:on    5:on    6:off
     }}}
   # Sets hostname
     {{{
-HOSTNAME=dns01.cgeeker.com #/etc/sysconfig/network
+HOSTNAME=www.rollingbedsheet.com #/etc/sysconfig/network
     }}}
     {{{
-domain cgeeker.com #/etc/resolv.conf
+domain rollingbedsheet.com #/etc/resolv.conf
     }}}
   # Disables ipv6
     {{{

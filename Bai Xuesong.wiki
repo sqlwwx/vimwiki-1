@@ -1,7 +1,7 @@
  = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
-=== My name is Bai Xuesong(Haku Yukimatsu in japan). </br>I'm a Software Engineer, now live in tokyo. ===
+=== My name is Bai Xuesong(Haku Yukimatsu in japan). </br>I'm a Software/Infrastructure Engineer, now live in tokyo. ===
 
 == Education: ==
   Sep 1992 to Jul 1996
@@ -15,7 +15,9 @@
   * DB2 9 Application Developer
   * Oracle 11g OCP/_*OCM Learning*_
   * OSSDB(postgresql) Silver/_*Gold Learning*_
-  * CISSP_*Learning*_
+  * _*CISSP Learning*_
 
 == Skills: ==
-  * Programming Language: c/shell/java/python/ruby/groovy/sql
+  * Application Developing Consulting
+  * Infrastructure Construction Consulting
+  * Programming Language: c/shell/java/python/ruby/groovy/sql etc

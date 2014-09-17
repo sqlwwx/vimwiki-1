@@ -20,4 +20,5 @@
 == Skills: ==
   * Application Developing Consulting
   * Infrastructure Construction Consulting
-  * Programming Language: c/shell/java/python/ruby/groovy/sql etc
+  * Security Consulting
+  * Programming Language: c/shell/java/python/ruby/groovy/sql/plsql/jcl

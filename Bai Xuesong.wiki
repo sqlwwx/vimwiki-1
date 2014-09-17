@@ -10,7 +10,7 @@
 
 == Qualifications: ==
   * ~~CCNA(expired on Sep 2004)~~
-  * LPIC 301/302/_*303 Learning*_
+  * LPIC 301/302/303/_*304 Learning*_
   * DB2 9 Advanced DBA
   * DB2 9 Application Developer
   * Oracle 11g OCP/_*OCM Learning*_

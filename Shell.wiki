@@ -2,7 +2,7 @@
  = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
  ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
 
-=== Examples ===
+=== Tips & Tricks ===
   # *named pipe*
     {{{ class="brush: bash; highlight: [5,8];" title="read-namedpipe.sh"
 #!/bin/bash

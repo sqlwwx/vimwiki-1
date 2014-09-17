@@ -107,5 +107,5 @@ bind -t vi-copy 'y' copy-selection
 setw -g allow-rename off
   }}}
 
-=== Examples ===
+=== Tips & Tricks ===
   # `gem install tmuxinator #install tmuxinator`

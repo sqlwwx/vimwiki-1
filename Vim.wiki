@@ -52,15 +52,45 @@ make ARCH=x86_64 && make install
   * [[http://pragprog.com/book/dnvim/practical-vim|Practical Vim: Edit Text at the Speed of Thought]]  ^_*Excellent!! Highly recommend!!_*^
   * [[http://www.thegeekstuff.com/vim-101-hacks-ebook/|Vim 101 HACKS]]  ^_*Very Good!! recommend!!_*^
 
-=== Hacks ===
+=== Tips & Tricks ===
   # *Redraws Screen*
     {{{ class="brush: bash;"
 z<ENTER> # the current line => Top
 z-       # the current line => Bottom
 z.       # the current line => Middle
     }}}
-  # *Advanced modes*
- 
+  # *Shows ASCII value*
+    {{{ class="brush: bash;"
+ga       # show ga (ga on a space) result: < > 32, Hex 20, Octal 040
+    }}
+  # *Formats a paragraph*
+    {{{ class="brush: bash;"
+gqap     # gq: format, ap: a paragragh
+    }}}
+  # *Matches at any position*
+    {{{ class="brush: bash;"
+/pattern\zs    # place the cursor at end of pattern
+    }}}
+  # *Reverses letters*
+    {{{ class="brush: bash;"
+vmap <Leader>fR c<C-O>:set ri<CR><C-R>"<Esc>:set nori<CR> # need +rightleft feature
+    }}}
+  # *Reverses lines*
+    {{{ class="brush: bash;"
+:range!tac    # tac = reversed cat
+    }}}
+  # *Default Editor*
+    {{{ class="brush: bash;"
+update-alternatives --set editor VIMPATH  # debian-based system
+export EDITOR=vim                         # most of unix/linux system
+    }}}
+  # *Binary Mode*
+    {{{ class="brush: bash;"
+vim -b file       # edit file in binary-mode
+:%!xxd            # from text-mode to bianry-mode
+:%!xxd -r         # from binary-mode to text-mode
+    }}}
+  # *Advanced Modes*
 | Mode   | Key Binding   | Description                                                                              |
 |--------|---------------|------------------------------------------------------------------------------------------|
 | Visual | v/V/CTRL-V    | the movement commands extend a highlighted area. the only way to select a block of text. |

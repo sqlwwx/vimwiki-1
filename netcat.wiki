@@ -1,0 +1,9 @@
+
+ = [[index|Top]] [[Study]] [[Writing]] [[diary/diary|Diary]] [[Bai Xuesong|About]] =
+ ==== Hi, Welcome to [[Bai Xuesong]]'s wiki. ====
+
+=== Books and Documents  ===
+ * [[http://www.syngress.com/special-interests/Netcat-Power-Tools/|Netcat Power Tools]]  ^_*Excellent!! Highly recommend!!_*^
+
+=== Tips & Tricks ===
+ # `mkfifo namedpipe && nc -l lport < namedpipe | nc rhost rport > namedpipe #bidirectional tcp relay by using named pipe`

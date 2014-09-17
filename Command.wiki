@@ -54,3 +54,7 @@ verify (sizeof filetype_letter - 1 == arg_directory + 1);
     C_LINK, C_SOCK, C_FILE, C_DIR     \
   }
     }}}
+  # *Extracts specific files from tarball*
+    {{{ class="brush: bash;" titile="extracts jpg,png files from tarball"
+tar -zxvf tarball.tgz *.jpg *.png
+    }}}

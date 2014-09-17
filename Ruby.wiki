@@ -4,7 +4,7 @@
 
 === Books and Documents  ===
 
-=== Examples ===
+=== Tips & Tricks ===
  # `\curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby #install ruby rvm`
  # `rvm intall rubygems #install gem`
 

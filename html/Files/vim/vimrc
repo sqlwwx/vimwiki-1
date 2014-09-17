@@ -108,10 +108,13 @@ set foldmethod=indent
 set langmenu=none
 set expandtab
 set laststatus=2
+set title
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+vmap <Leader>fR c<C-O>:set ri<CR><C-R>"<Esc>:set nori<CR>
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window %")
 " colorscheme desert
 " colorscheme jellybeans
 colorscheme molokai
-map :w :up
 
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_list = [
@@ -121,3 +124,10 @@ let g:vimwiki_list = [
        \  'template_ext'     : '.html',
        \  'syntax'           : 'default',
        \  'path_html'        : '~/vimwiki/html/'}]
+
+autocmd bufnewfile *.wiki :r! head -3 ~/vimwiki/index.wiki
+map <F2>  :!cd ~/vimwiki/ && git add * && git commit -m "vimwiki-`date`" && git push<CR>
+map <F3>  :Vimwiki2HTML<CR>
+map <F4>  :VimwikiAll2HTML<CR>
+map <F5>  :VimwikiDiaryGenerateLinks<CR>
+

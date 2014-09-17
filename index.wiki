@@ -3,6 +3,6 @@
 
 ==*Topics*==
 ----
-=== [[Ruby]] [[Shell]] [[SSH]] [[tmux]] [[Vim]] [[vimwiki]] ===
+=== [[Ruby]] [[Shell]] [[SSH]] [[tmux]] [[Vim]] [[vimwiki]] [[netcat]] ===
 ----
 

@@ -166,7 +166,7 @@ ServerAliveInterval 90 #how many seconds the connection needs to be idle before 
 ServerAliveCountMax 5  #how many keepalives it needs to send without receiving a response
          }}}
 
-=== Examples ===
+=== Tips & Tricks ===
  # `telnet/nc hostname port #OpenSSH Banner Grabbing`
  # `sshd -f sshd_config -p testport -ddd #Test and Debug mode(not fork)`
  # `ssh-keyscan -t rsa hostname -p sshport #Get server's rsa public key`
@@ -181,5 +181,5 @@ ServerAliveCountMax 5  #how many keepalives it needs to send without receiving a
  # `cat .ssh/id_rsa.pub | ssh server "cat >> ~/.ssh/authorized_keys" #send user public key to server`
  # `ssh -X hostname #connect hostnmae by X11`
  # `ssh -f hostname xterm #run xterm on the host and client got to background`
- # `ssh -fNL localport:remotehost:remotename #run Local Port Forwarding and client got to background`
+ # `ssh -fNL localhost:localport:remotehost:remotename user@hostname #Local Port Forwarding and client got to background`
 

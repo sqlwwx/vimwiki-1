@@ -35,13 +35,13 @@
 <script type="text/javascript">
   SyntaxHighlighter.all();
 </script>
-<title>Ruby</title>
+<title>Bai Xuesong</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<base href="http://www.rollingbedsheet.com/vimwiki/">
+<base href="http://dns01.cgeeker.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-08-01 00:07:52 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-05-22 12:28:19 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -52,21 +52,46 @@
    </form>
    <!-- SiteSearch Google -->
 
-
 <h1 id="toc_1" class="justcenter"><a href="index.html">Top</a> <a href="Study.html">Study</a> <a href="Writing.html">Writing</a> <a href="diary/diary.html">Diary</a> <a href="Bai Xuesong.html">About</a></h1>
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
-<h3 id="toc_1.0.1">Books and Documents</h3>
+<h3 id="toc_1.0.1">My name is Bai Xuesong(Haku Yukimatsu in japan). </br>I'm a Software Engineer, now live in tokyo.</h3>
 
-<h3 id="toc_1.0.2">Tips &amp; Tricks</h3>
-<ol>
+<h2 id="toc_1.1">Education:</h2>
+<p>
+  Sep 1992 to Jul 1996
+  <a href="http://www.tju.edu.cn/english/">TianJin University, TianJin, China</a>
+  </br>Bachelor degree of Electronic Engineering
+</p>
+
+<h2 id="toc_1.2">Qualifications:</h2>
+<ul>
 <li>
-<code>\curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby #install ruby rvm</code>
+<del>CCNA(expired on Sep 2004)</del>
 
 <li>
-<code>rvm intall rubygems #install gem</code>
+LPIC 301/302/<em><strong>303 Learning</strong></em>
 
-</ol>
+<li>
+DB2 9 Advanced DBA
+
+<li>
+DB2 9 Application Developer
+
+<li>
+Oracle 11g OCP/<em><strong>OCM Learning</strong></em>
+
+<li>
+OSSDB(postgresql) Silver/<em><strong>Gold Learning</strong></em>
+
+</ul>
+
+<h2 id="toc_1.3">Skills:</h2>
+<ul>
+<li>
+Programming Language: c/shell/java/python/ruby/groovy/sql
+
+</ul>
 
 </body>
 </html>

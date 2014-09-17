@@ -35,13 +35,13 @@
 <script type="text/javascript">
   SyntaxHighlighter.all();
 </script>
-<title>Ruby</title>
+<title>netcat</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <base href="http://www.rollingbedsheet.com/vimwiki/">
 </head>
 <body>
   <div style="position:absolute;top:10;right:0">
-    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-08-01 00:07:52 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
+    <span class="justleft"><font size="2"><strong>This page was last modified on 2013-07-31 23:56:38 JST,&nbsp;&nbsp;Powered by <a href="http://code.google.com/p/vimwiki/"><font size="5">vimwiki</font></a>.</strong>&nbsp;&nbsp;</font></span>
   </div>
   <!-- SiteSearch Google -->
   <form method="get" action="http://www.google.com/search" class="justleft">
@@ -57,14 +57,16 @@
 <h4 id="toc_1.0.0.1" class="justcenter">Hi, Welcome to <a href="Bai Xuesong.html">Bai Xuesong</a>'s wiki.</h4>
 
 <h3 id="toc_1.0.1">Books and Documents</h3>
+<ul>
+<li>
+<a href="http://www.syngress.com/special-interests/Netcat-Power-Tools/">Netcat Power Tools</a>  <sup><small><em><strong>Excellent!! Highly recommend!!</em></strong></small></sup>
+
+</ul>
 
 <h3 id="toc_1.0.2">Tips &amp; Tricks</h3>
 <ol>
 <li>
-<code>\curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby #install ruby rvm</code>
-
-<li>
-<code>rvm intall rubygems #install gem</code>
+<code>mkfifo namedpipe &amp;&amp; nc -l lport &lt; namedpipe | nc rhost rport &gt; namedpipe #bidirectional tcp relay by using named pipe</code>
 
 </ol>
 

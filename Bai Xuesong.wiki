@@ -15,6 +15,7 @@
   * DB2 9 Application Developer
   * Oracle 11g OCP/_*OCM Learning*_
   * OSSDB(postgresql) Silver/_*Gold Learning*_
+  * CISSP_*Learning*_
 
 == Skills: ==
   * Programming Language: c/shell/java/python/ruby/groovy/sql
